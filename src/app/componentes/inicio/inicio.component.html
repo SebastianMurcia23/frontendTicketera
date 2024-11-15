@@ -1,0 +1,72 @@
+<div class="container">
+    <div>
+      <table class="logo-table">
+        <tr class="tr-facebook">
+          <td class="td-logo"><img src="facebook.png" alt="img-facebook" width="50"></td>
+        </tr>
+        <tr class="tr-instagram">
+          <td class="td-logo"><img src="instagram.png" alt="img-facebook" width="50"></td>
+        </tr>
+        <tr class="tr-whatsapp" >
+          <td class="td-logo"><img src="whatsapp.png" alt="img-facebook" width="40" style="margin-left: 5px; margin-top: 5px;"></td>
+        </tr>
+        <tr class="tr-twitter">
+          <td class="td-logo"><img src="twiter.png" alt="img-twitter" width="40" style="margin-left: 5px; margin-top: 5px;"></td>
+        </tr>
+      </table>
+    </div>
+      <div class="container">
+      <div class="banner-table">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+          <div class="carousel-inner">
+            <div class="carousel-item active" id="banner1">
+              <img src="banner1.png" style="width: 1130px;" alt="marc antony">
+              <img src="banner2.png" class="hover-img" style="width: 1130px; position: absolute; top: 0; left: 0;" alt="hover image">
+            </div>
+          </div>
+        </div>  
+      </div>  
+    </div>
+    <form [formGroup]="inicioForm"  >
+      <nav id="navbar" class="navbar custom-navbar px-3 mt-5 d-flex align-items-center justify-content-between">
+        <div class="col-3">
+          <label class="form-label" >Tipo de evento: </label>
+          <select formControlName="tipo" class="form-select" aria-label="Default select example" (change)="filtrarEventosTipo($event)" >
+              <option value="" selected>Selecionar Evento</option>
+              @for (item of tiposDeEvento; track $index) {
+                  <option value="{{item}}">{{item}}</option>
+              }
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="form-label" >Ciudades: </label>
+          <select formControlName="ciudad" class="form-select" aria-label="Default select example" >
+            <option value="" selected>Selecionar Ciudades</option>
+            @for (item of Ciudades; track $index) {
+              <option value="{{item}}">{{item}}</option>
+            }
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="form-label" >Seleccionar Fecha: </label>
+          <input class="form-control" formControlName="fecha" type="date" >
+        </div>
+      </nav> 
+    </form> 
+<div class="container p-3">
+    
+  <div class="row">
+      @for (item of eventos; track $index) {
+    <div class="col-3">
+        <div class="card p-3 mb-4" style="width: 18rem;">
+          <img src="{{item.imagenPortada}}" alt="{{item.nombre}}" class="img-fluid">
+          <div class="card-body">
+            <h5 class="card-title">{{item.nombre}}</h5>
+            <p class="card-text">{{item.descripcion}}</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+          </div>
+        </div>
+    </div>
+      }
+  </div>
+</div>

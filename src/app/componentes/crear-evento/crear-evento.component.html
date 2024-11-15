@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header p-4">
+        <h5 class="mb-0">
+          <i class="fa-solid fa-user-plus me-3"></i>Registro de un nuevo Evento
+        </h5>
+      </div>
+    <div class="card-body p-4">
+        <form class="row g-3" [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()">
+            <div class="col-6">
+                <label class="form-label">Nombre: </label>
+                <input type="text" class="form-control" formControlName="nombre" />
+            </div>
+        
+        
+            <div>
+                <label>Descripción: </label>
+                <textarea type="text" class="form-control" formControlName="descripcion"></textarea>   
+            </div>
+        
+        
+            <div class="col-6">
+                <label class="form-label">Tipo: </label>
+                <select formControlName="tipo" class="form-select" >
+                    <option value="">Seleccione un tipo</option>
+                    @for (item of tiposDeEvento; track $index) {
+                        <option value="{{item}}">{{item}}</option>
+                    }
+                </select>
+            </div>
+        
+            <div>
+                <label class="form-label">Dirección: </label>
+                <input type="text" class="form-control" formControlName="direccion" />
+            </div>
+        
+            <div>
+                <label class="form-label">Ciudad: </label>
+                <input type="text" class="form-control" formControlName="ciudad" />
+              </div>
+        
+        
+        <div>
+        <label>Imagen evento: </label>
+        <input type="file" (change)="onFileChange($event, 'portada')" />
+        </div>
+
+
+        <div>
+        <label>Imagen localidades: </label>
+        <input type="file" (change)="onFileChange($event, 'localidades')" />
+        </div>
+        
+        
+          <button type="button" class="btn btn-primary" [disabled]="crearEventoForm.invalid">Crear Evento</button>  
+        </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+#banner1 {
+    position: relative;
+  }
+  
+  #banner1 img {
+    transition: opacity 0.5s ease;
+  }
+  
+  #banner1 img.hover-img {
+    opacity: 0;
+  }
+  
+  #banner1:hover img.default-img {
+    opacity: 0;
+  }
+  
+  #banner1:hover img.hover-img {
+    opacity: 1;
+  }
+  
+
+.banner-table{
+
+    margin-left: 160px;
+    margin-top: -200px;
+}
+
+.logo-table{
+
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.td-banner{
+   
+    padding: 0; 
+    margin:  0;
+}
+ .tr-instagram{
+
+    margin-top: 100px;
+
+ }
+
+ .custom-navbar {
+    background-color: #5E8E7D;              
+ }
